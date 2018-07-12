@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', 'MainController@getBiosSerial');
+Route::get('/test', 'MainController@hardware');

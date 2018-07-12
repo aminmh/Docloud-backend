@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function getBiosSerial()
+    public function hardware()
     {
-        $obj = new COM('winmgmts://localhost/root/CIMV2');
+
+        $obj = new COM ( 'winmgmts://localhost/root/CIMV2' );
         $fso = new COM ( "Scripting.FileSystemObject" );
-        $wmi_computersystem = $obj->ExecQuery("select * from Win32_ComputerSystem");
+        $wmi_computersystem    =    $obj->ExecQuery("Select * from Win32_ComputerSystem");
         $wmi_bios              =    $obj->ExecQuery("Select * from Win32_BIOS");
         $processor             =    $obj->ExecQuery("Select * from Win32_Processor");
         $PhysicalMemory        =    $obj->ExecQuery("Select * from Win32_PhysicalMemory");
@@ -56,33 +57,34 @@ class MainController extends Controller
 
         }
 
-        echo "Bios version   : ".$bios_version."<br/>
-          Serial number of bios  : ".$serial."<br/>
-          Hardware Model : ".$model."<br/>
-          ID-Processor : ".$idprocessor."<br/>
-          Architecture-Processor : ".$Architecture."<br/>
-          Name-Processor : ".$Name."<br/>
-          Version-Processor : ".$Version."<br/>
+
+        echo "Bios version   : " . $bios_version . "<br/>
+          Serial number of bios  : " . $serial . "<br/>
+          Hardware Model : " . $model . "<br/>
+          ID-Processor : " . $idprocessor . "<br/>
+          Architecture-Processor : " . $Architecture . "<br/>
+          Name-Processor : " . $Name . "<br/>
+          Version-Processor : " . $Version . "<br/>
           <hr>
           <hr>
           PhysicalMemory
           <hr>
           <hr>
-          Capacity : ".$Capacity."<br/>
-          Name : ".$Name."<br/>
+          Capacity : " . $Capacity . "<br/>
+          Name : " . $Name . "<br/>
           <hr>
           <hr>
           carte mere
           <hr>
           <hr>
-          SerialNumber : ".$SerialNumber."<br/>
+          SerialNumber : " . $SerialNumber . "<br/>
            <hr>
           <hr>
           disk
           <hr>
           <hr>
-          SerialNumber : ".$SerialNumberDisk."<br/>
-          FileSystem : ".$FileSystem."<br>
+          SerialNumber : " . $SerialNumberDisk . "<br/>
+          FileSystem : " . $FileSystem . "<br>
           ";
     }
 }
